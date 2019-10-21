@@ -30,7 +30,7 @@ io.on('connection', function (socket) {
 
 // These serve the frontend up
 app.use('/static', express.static(path.join(__dirname, '../frontend/build/static')));
-app.get('/home', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
 });
 
