@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 import logo from './logo.svg';
@@ -18,10 +19,10 @@ function App() {
         <header className="App-header">
           <div className="d-flex w-100">
             <div className="ml-3 mr-auto">
-              <Link to="/">Home Dashboard</Link>
+              <Link to="/home">Home Dashboard</Link>
             </div>
             <div className="mr-3">
-              <Link to="/about">About</Link>
+              <Link to="/home/about">About</Link>
             </div>
           </div>
         </header>
@@ -30,11 +31,14 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
+          <Route path="/home/about">
             <About />
           </Route>
-          <Route path="/">
+          <Route path="/home">
             <Dashboard />
+          </Route>
+          <Route path="/">
+            <Redirect to="/home" />
           </Route>
         </Switch>
       </Router>
